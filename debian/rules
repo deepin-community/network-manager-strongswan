@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_auto_configure:
+	dh_auto_configure -- --without-libnm-glib --with-charon=/usr/lib/ipsec/charon-nm --libexecdir="\$$(prefix)/lib/NetworkManager"
+
+override_dh_clean:
+	dh_clean -XNetworkManager-strongswan.metainfo.xml nm-strongswan-service.name
+
+override_dh_makeshlibs:
+	dh_makeshlibs -X/usr/lib/NetworkManager/

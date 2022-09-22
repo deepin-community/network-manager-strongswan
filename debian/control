@@ -1,0 +1,33 @@
+Source: network-manager-strongswan
+Section: net
+Priority: extra
+Homepage: https://wiki.strongswan.org/projects/strongswan/wiki/NetworkManager
+Maintainer: Harald Dunkel <harri@afaics.de>
+Build-Depends: debhelper-compat (= 13)
+	, network-manager-dev (>= 1.14)
+	, libnma-dev (>= 1.8)
+	, libnm-dev (>= 1.14)
+	, libdbus-glib-1-dev
+	, libgtk-3-dev
+	, libsecret-1-dev
+	, automake
+	, gnome-common
+	, intltool
+	, pkg-config
+Standards-Version: 4.5.0.0
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/debian/network-manager-strongswan
+Vcs-Git: https://salsa.debian.org/debian/network-manager-strongswan.git
+
+Package: network-manager-strongswan
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, strongswan-nm (>= 5.8.4), network-manager (>= 1.14)
+Description: network management framework (strongSwan plugin)
+ NetworkManager attempts to keep an active network connection available at
+ all times.  It is intended primarily for laptops where it allows easy
+ switching between local wireless networks, it's also useful on desktops
+ with a selection of different interfaces to use.  It is not intended for
+ usage on servers.
+ .
+ This package provides a VPN plugin for strongSwan, providing easy access to
+ IKEv2 IPSec VPN's.
