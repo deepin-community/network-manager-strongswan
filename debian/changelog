@@ -1,22 +1,44 @@
-network-manager-strongswan (1.5.2.1-2) UNRELEASED; urgency=medium
+network-manager-strongswan (1.6.0-3) unstable; urgency=medium
 
-  * update
+  * remove deprecated /etc/NetworkManager/VPN/nm-strongswan-service.name
+    file (Closes: #897906, #897939).
+  * drop libdbus-glib-1-dev from Build-Depends (Closes: #955849).
+  * Install helper binaries into /usr/libexec (Closes: #1054310). Patch
+    was provided by Michael Biebl (biebl@debian.org)
+  * Disable static libraries, those are not needed and only take up space
+  * Remove libtool *.la files, those are not useful as well
 
- -- Harald Dunkel <harri@afaics.de>  Mon, 25 Jul 2022 13:42:13 +0800
+ -- Harald Dunkel <harri@afaics.de>  Thu, 26 Oct 2023 17:18:53 +0200
 
-network-manager-strongswan (1.5.2.1-2) unstable; urgency=medium
+network-manager-strongswan (1.6.0-2.1) unstable; urgency=medium
 
-  [ donghualin ]
-  * UNRELEASED
+  * Non-maintainer upload.
+  * debian/rules: Properly append CFLAGS to avoid build error
+    on deprecated functions. (Closes: #1042044)
 
- -- caixiangrong <caixiangrong@uniontech.com>  Mon, 25 Jul 2022 13:38:14 +0800
+ -- Boyuan Yang <byang@debian.org>  Mon, 02 Oct 2023 12:51:54 -0400
 
-network-manager-strongswan (1.5.2.1-1) unstable; urgency=medium
+network-manager-strongswan (1.6.0-2) unstable; urgency=medium
 
-  * new upstream version 1.5.2.1:
+  [ Debian Janitor ]
+  * Change priority extra to priority optional.
+  * Drop unnecessary dependency on dh-autoreconf.
+  * Fix day-of-week for changelog entries 1.4.5-1, 1.3.1-2.
+  * Remove empty maintainer scripts: network-manager-strongswan (postinst)
 
- -- donghualin <donghualin@uniontech.com>  Tue, 22 Jun 2022 11:39:00 +0200
+  [ Harald Dunkel ]
+  * Build editor component with GTK 4, too (fix provided bt Moritz Schlarb)
+    (Closes: #1020495, #1036607)
 
+ -- Harald Dunkel <harri@afaics.de>  Sun, 11 Jun 2023 10:20:41 +0200
+
+network-manager-strongswan (1.6.0-1) unstable; urgency=medium
+
+  * new upstream version 1.6.0:
+   This version supports GTK 4 (in addition to GTK 3), but doesn't
+   support compiling against libnm-glib anymore.
+
+ -- Harald Dunkel <harri@afaics.de>  Sat, 16 Jul 2022 14:07:25 +0200
 
 network-manager-strongswan (1.5.2-1) unstable; urgency=medium
 
@@ -77,7 +99,7 @@ network-manager-strongswan (1.4.5-1) unstable; urgency=medium
     libnm-dev (network-manager-applet) >= 1.8, matching Buster and
     Sid
 
- -- Harald Dunkel <harri@afaics.de>  Sun, 20 Feb 2020 11:30:55 +0100
+ -- Harald Dunkel <harri@afaics.de>  Thu, 20 Feb 2020 11:30:55 +0100
 
 network-manager-strongswan (1.4.4-2) unstable; urgency=medium
 
@@ -145,7 +167,7 @@ network-manager-strongswan (1.3.1-2) unstable; urgency=medium
   * follow standards version 3.9.8
   * linitian cleanups
 
- -- Harald Dunkel <harri@afaics.de>  Wed, 28 Aug 2016 09:47:28 +0100
+ -- Harald Dunkel <harri@afaics.de>  Sun, 28 Aug 2016 09:47:28 +0100
 
 network-manager-strongswan (1.3.1-1) unstable; urgency=low
 
